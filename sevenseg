@@ -1,0 +1,41 @@
+			title	"seven segment"
+			list	p=16f84A
+			radix	hex
+			include	"p16f84A.inc"
+
+COUNT1		EQU		d'12'
+COUNT2		EQU		d'13'
+COUNT3		EQU		d'14'
+COUNT4		EQU		d'15'
+TEMP		EQU		d'16'
+TEST		EQU		d'17'
+
+
+			ORG		0x0
+			CLRF	PORTA
+			BSF		STATUS,RP0	;jumping to bank 1
+			CLRF	TRISA
+			BCF		STATUS,RP0	;jumping to bank 0
+			
+			
+			
+DELAYLONG	MOVLW	H'00'
+			MOVWF	COUNT3
+			MOVWF	COUNT2
+			MOVLW 	d'5'
+			MOVWF	COUNT1
+
+LOOP1		INCFSZ	COUNT3,F
+			GOTO	LOOP
+			INCFSZ	COUNT2,F
+			GOTO	LOOP
+			DECFSZ	COUNT1,F
+			GOTO	LOOP
+			RETURN
+			
+DELAYSHORT	MOVLW	H'00'
+			MOVWF	COUNT2
+			
+LOOP2		NOP
+			DECFSZ
+			END
