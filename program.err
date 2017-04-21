@@ -1,4 +1,12 @@
-Message[302] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 32 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 33 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 35 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Warning[205] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 388 : Found directive in column 1. (END)
+Message[302] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 41 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 44 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[203] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 102 : Found opcode in column 1. (BSF)
+Warning[203] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 103 : Found opcode in column 1. (BSF)
+Warning[203] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 199 : Found opcode in column 1. (GOTO)
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 505 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 542 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 543 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 567 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 568 : Using default destination of 1 (file).
+Warning[205] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 573 : Found directive in column 1. (END)

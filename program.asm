@@ -7,23 +7,24 @@ COUNTER		EQU		d'12'
 COUNTER2	EQU		d'13'
 TIMER3		EQU		d'14'
 SELECT		EQU		d'15'
-
+DEBOUNCECOUNT	EQU		d'16'
+ADDRESSING_COUNTER	EQU	d'17'
 
 			ORG		0x0
 			GOTO	START
 
 			ORG 	0x04
 
-		;	BTFSC	INTCON,INTF	;RB0 interrupt flag test
-		;	GOTO	RB0Interrupt
+			;BTFSC	INTCON, T0IF	;timer interrupt flag test
+			;GOTO	timerInterrupt	
 
-			BTFSC	INTCON, T0IF	;timer interrupt flag test
-			GOTO	timerInterrupt	
+			BTFSC	INTCON, RBIF	;interrupt for button presses
+			GOTO	BUTTONPRESS
 			
 START		CLRF	PORTA
 
 			;clearing flags for menu star
-			BCF		SELECT,F
+			CLRF		SELECT
 			MOVLW	b'10'
 			MOVWF	SELECT	
 
@@ -41,9 +42,11 @@ START		CLRF	PORTA
 			
 			MOVLW	b'10000111'	;SETTING OPTION REG to support interrupts
 			MOVWF	OPTION_REG
+
 			BCF		STATUS,RP0	;jumping back to bank 0
 
 			CLRF 	PORTA	;clearing PORTA
+			CLRF	PORTB	;CLEARING PORTB
 
 			CALL	POWERUPDELAY ;delaying 40ms waiting power up LCD
 			
@@ -96,6 +99,9 @@ WELCOME 	CALL	charSp	;Welcome Screen
 ;START MENU		 |
 ;----------------|
 
+BSF	PORTB, 2
+BSF	PORTB, 3
+
 MENU		CALL	charSp  ;Mode Selection Menu
 			CALL	charSp
 			CALL	charSp
@@ -108,13 +114,8 @@ MENU		CALL	charSp  ;Mode Selection Menu
 			CALL	letterU
 			CALL	letterL
 			CALL	letterT
-
-			;Newline
-			MOVLW b'01100' ; 3 bits to jump address
-			CALL ET
-		
-			MOVLW b'00000' ; 4 bits to jump address
-			CALL ET
+			
+			CALL	NEWLINE
 			
 			CALL	charSp
 			CALL	letterO
@@ -139,62 +140,207 @@ MENU		CALL	charSp  ;Mode Selection Menu
 			MOVWF	TIMER3
 
 			BSF		INTCON,RBIE
-			BSF		INTCON,T0IE
+			;BSF		INTCON,T0IE
 			BSF		INTCON,GIE
 
 
 MENULOOP	GOTO	MENULOOP
+
+DEFAULT_START	CALL CLEARDISPLAY
+				
+				CALL	SET_BLINKING
+
+				BSF d'20',0 ;obstacle
+				BSF d'21',1 ;empty
+				BSF d'22',1 ;empty
+				BSF d'23',1 ;empty
+				BSF d'24',1 ;empty
+				BSF d'25',2 ;S
+				BSF d'26',1 ;empty
+				BSF d'27',1 ;empty
+				BSF d'28',1 ;empty
+				BSF d'29',1 ;empty
+				BSF d'30',3 ;E
+				BSF d'31',0 ;obstacle
+				BSF d'32',1 ;empty
+				BSF d'33',0 ;obstacle
+				BSF d'34',0 ;obstacle
+				BSF d'35',1 ;empty
+				BSF d'36',1 ;empty
+				BSF d'37',1 ;empty
+				BSF d'38',0 ;obstacle
+				BSF d'39',0 ;obstacle
+			
+
+				BSF PORTB,3	;turn on RED LED	
+				BCF PORTB,2 ;ground GREEN LED
+				
+				MOVLW d'20'
+				MOVWF FSR
+				MOVLW d'10'
+				MOVWF ADDRESSING_COUNTER
+
+				CALL INDA
+				CALL charSp
+				CALL charSp
+				CALL charSp
+				CALL letterS
+				CALL charSp
+				CALL at
+
+				CALL INDA1
+				CALL charSp
+				CALL charSp
+				CALL charSp
+				CALL nb0
+				CALL comma
+				CALL nb5
+
+GOTO	MENULOOP
+
+
+OBSTACLE_START	CALL	CLEARDISPLAY
+
+
+MAZE_START
 
 ;-------------------------|
 ;END MAIN PROGRAM         |
 ;-------------------------| 
 
 
+BUTTONPRESS		CALL	DEBOUNCE_DELAY	;CALLED WHEN ANY BUTTON IS PRESSED	
+				BTFSS	PORTB, 4	;checking if button 1 pressed
+				GOTO	MOVE_BUTTON
+				BTFSS	PORTB, 5	;checking if button 2 pressed
+				GOTO	CONFIRM_BUTTON
+				BTFSS	PORTB, 6	;checking if button 3 pressed
+				GOTO	START_BUTTON	
+				BTFSS	PORTB, 7	;checking if button 4 pressed
+				GOTO	END_BUTTON
+				GOTO	RETURN_TO_PROGRAM
+				
+MOVE_BUTTON		GOTO	INCREMENT_POINTER
+
+CONFIRM_BUTTON		BCF		INTCON, RBIF
+					BTFSS	SELECT,0
+					GOTO	S0
+					BTFSC	SELECT,0
+					GOTO	S1
+S0				BTFSS	SELECT,1
+				GOTO	MAZE_START
+				BTFSC	SELECT,1
+				GOTO	DEFAULT_START
+S1				BTFSS	SELECT,1
+				GOTO	OBSTACLE_START
+				GOTO	RETURN_TO_PROGRAM
+
+START_BUTTON
+
+END_BUTTON
+	
+RETURN_TO_PROGRAM		BCF		INTCON, RBIF	
+						RETFIE
 
 
 
-ET		MOVWF	PORTA
-		BSF		PORTB,1; making a falling edge
-		NOP
-		BCF		PORTB,1
-		CALL	PRINTDELAY; this is to wait for LCD to stop executing
-		RETURN
+
+;---------------TIMER INTERRUPT CODE--------------------------------
+timerInterrupt	CALL	POWERUPDELAY
+				DECFSZ	TIMER3,F ;decrementing timer3 to get 3s delay
+				GOTO	RETTIMER3
+
+				;INCREMENTING START POSITION
+				MOVLW	d'49'
+				MOVWF	TIMER3
+				CLRF	TMR0
+				;GOTO	INCREMENT_POINTER		
+				
+RETTIMER3	RETFIE
+;------------------------------------------------------------------
 
 
 
-POWERUPDELAY	MOVLW	d'00'	; setting up 40ms delay
-				MOVWF	COUNTER
-				MOVLW	d'51'
-				MOVWF	COUNTER2
 
-LOOP	INCFSZ	COUNTER,F
-		GOTO	LOOP
-		DECFSZ	COUNTER2,F
-		GOTO	LOOP
-		RETURN
+;---------------INCREMENT POINTER CODE----------------------------
+INCREMENT_POINTER	BTFSS	SELECT,0
+					GOTO	S00CHECKS1
+					BTFSC	SELECT,0
+					GOTO	S01CHECKS1
 
-PRINTDELAY	MOVLW	d'00'; SETTING UP 3.85MS DELAY
-			MOVWF 	COUNTER	
-			MOVLW 	d'5'
-			MOVWF	COUNTER2
+S00CHECKS1		BTFSS	SELECT,1
+				GOTO	POSITION1
+				BTFSC	SELECT,1
+				GOTO	POSITION2
 
-LOOP1	INCFSZ	COUNTER,F
-		GOTO	LOOP1	
-		DECFSZ	COUNTER2,F
-		GOTO 	LOOP1
-		RETURN
+S01CHECKS1		BTFSS	SELECT,1
+				GOTO	POSITION3
+				GOTO	RETURN_TO_PROGRAM
 
-CLEARDISPLAY	MOVLW b'00000' ;initializing clear display
+;CLEARING CAN BE OPTIMIZED FURTHER IF NECESSARY
+POSITION1		MOVLW	b'01100' ;4AH IS THE LOCATION
+				CALL 	ET
+		
+				MOVLW b'01011' ; 4 bits to jump address
+				CALL ET	
+				CALL	charSp
+
+
+				MOVLW b'01000' ; 00 IS THE LOCATION
 				CALL ET
-				MOVLW b'00001' ;clear display
+		
+				MOVLW b'00100' ; 4 bits to jump address
 				CALL ET
-				RETURN
+
+				CALL	charStar;print star before DEFAULT
+				BSF		SELECT,1
+				
+				GOTO	RETURN_TO_PROGRAM
+
+;CLEARING CAN BE OPTIMIZED FURTHER IF NECESSARY
+POSITION2		MOVLW 	b'01000' ; clearing position 1
+				CALL 	ET
+		
+				MOVLW 	b'00100' ; 4 bits to jump address
+				CALL 	ET
+				CALL	charSp		
 
 
+				MOVLW b'01100' ; 40H IS THE LOCATION
+				CALL ET
+		
+				MOVLW b'00000' ; 4 bits to jump address
+				CALL ET	
+				
+				CALL	charStar;print star before OBSTACLE	
 
+				BSF		SELECT,0
+				BCF		SELECT,1
+				GOTO	RETURN_TO_PROGRAM
+				
 
+;CLEARING CAN BE OPTIMIZED FURTHER IF NECESSARY
+POSITION3		MOVLW b'01100' ; clearing position 2
+				CALL ET
+		
+				MOVLW 	b'00000' ; clearing position 2
+				CALL 	ET	
+				CALL	charSp
 
+				MOVLW	b'01100' ;4AH IS THE LOCATION
+				CALL 	ET
+		
+				MOVLW b'01011' ; 4 bits to jump address
+				CALL ET	
+				
+				CALL	charStar;print star before MAZE
+				BCF		SELECT,0
+				BCF		SELECT,1
+				GOTO	RETURN_TO_PROGRAM
 
+;-----------------------------------------------------------------------------	
+
+;------CHARACTER DECLARATIONS---------
 
 charSp	MOVLW b'10010' ;upper bits of Space character
 		CALL ET
@@ -291,105 +437,137 @@ empty		MOVLW	b'10101'
 			MOVLW	b'11111'
 			CALL	ET
 			RETURN
-
-
-;---------------TIMER INTERRUPT CODE--------------------------------
-timerInterrupt	CALL	POWERUPDELAY
-				DECFSZ	TIMER3,F ;decrementing timer3 to get 3s delay
-				GOTO	RETTIMER3
-
-				;INCREMENTING START POSITION
-				MOVLW	d'49'
-				MOVWF	TIMER3
-				CLRF	TMR0
-				GOTO	INCREMENTPOINTER
-				
-				
-RETTIMER3	BCF	INTCON,T0IF	;CLEARING TIMER INTERRUPT FLAG
-			RETFIE
-;------------------------------------------------------------------
-
-
-
-
-;---------------INCREMENT POINTER CODE----------------------------
-INCREMENTPOINTER	BTFSS	SELECT,0
-					GOTO	S00CHECKS1
-					BTFSC	SELECT,0
-					GOTO	S01CHECKS1
-
-S00CHECKS1		BTFSS	SELECT,1
-				GOTO	POSITION1
-				BTFSC	SELECT,1
-				GOTO	POSITION2
-
-S01CHECKS1		BTFSS	SELECT,1
-				GOTO	POSITION3
-				GOTO	RETTIMER3
-
-;CLEARING CAN BE OPTIMIZED FURTHER IF NECESSARY
-POSITION1		MOVLW	b'01100' ;4AH IS THE LOCATION
-				CALL 	ET
+at			MOVLW	b'10100'
+			CALL	ET	
+			MOVLW	b'10000'
+			CALL	ET
+			RETURN
+comma		MOVLW	b'10010'
+			CALL	ET	
+			MOVLW	b'11100'
+			CALL	ET
+			RETURN
+nb0			MOVLW	b'10011'
+			CALL	ET	
+			MOVLW	b'10000'
+			CALL	ET
+			RETURN
+nb5			MOVLW	b'10011'
+			CALL	ET	
+			MOVLW	b'10101'
+			CALL	ET
+			RETURN
+NEWLINE		MOVLW b'01100' ; 3 bits to jump address
+			CALL ET
 		
-				MOVLW b'01011' ; 4 bits to jump address
-				CALL ET	
-				CALL	charSp
+			MOVLW b'00000' ; 4 bits to jump address
+			CALL ET
+			RETURN
+
+;------------------------------------------
+
+;------DELAYS AND OTHER FIXED FUNCTIONS---------
+ET		MOVWF	PORTA
+		BSF		PORTB,1; making a falling edge
+		NOP
+		BCF		PORTB,1
+		CALL	PRINTDELAY; this is to wait for LCD to stop executing
+		RETURN
 
 
-				MOVLW b'01000' ; 00 IS THE LOCATION
+
+POWERUPDELAY	MOVLW	d'00'	; setting up 40ms delay
+				MOVWF	COUNTER
+				MOVLW	d'51'
+				MOVWF	COUNTER2
+
+LOOP	INCFSZ	COUNTER,F
+		GOTO	LOOP
+		DECFSZ	COUNTER2,F
+		GOTO	LOOP
+		RETURN
+
+PRINTDELAY	MOVLW	d'00'; SETTING UP 3.85MS DELAY
+			MOVWF 	COUNTER	
+			MOVLW 	d'5'
+			MOVWF	COUNTER2
+
+LOOP1	INCFSZ	COUNTER,F
+		GOTO	LOOP1	
+		DECFSZ	COUNTER2,F
+		GOTO 	LOOP1
+		RETURN
+
+DEBOUNCE_DELAY	MOVLW	d'249'
+				MOVWF	DEBOUNCECOUNT
+			
+DEBOUNCELOOP	NOP		
+				DECFSZ	DEBOUNCECOUNT
+				GOTO	DEBOUNCELOOP
+				RETURN
+
+CLEARDISPLAY	MOVLW b'00000' ;initializing clear display
 				CALL ET
-		
-				MOVLW b'00100' ; 4 bits to jump address
+				MOVLW b'00001' ;clear display
 				CALL ET
+				RETURN
 
-				CALL	charStar;print star before DEFAULT
-				BSF		SELECT,1
-				
-				GOTO	RETTIMER3
+SET_BLINKING	MOVLW	b'00000'	;initializing display
+				CALL	ET			
 
-;CLEARING CAN BE OPTIMIZED FURTHER IF NECESSARY
-POSITION2		MOVLW 	b'01000' ; clearing position 1
-				CALL 	ET
-		
-				MOVLW 	b'00100' ; 4 bits to jump address
-				CALL 	ET
-				CALL	charSp		
+				MOVLW	b'01111'	;setting display to ON
+				CALL	ET
+				RETURN
+;---------------------------
 
+;-----------------INDIRECT ADDRESSING---------------------
 
-				MOVLW b'01100' ; 40H IS THE LOCATION
-				CALL ET
-		
-				MOVLW b'00000' ; 4 bits to jump address
-				CALL ET	
-				
-				CALL	charStar;print star before OBSTACLE	
+INDA           	MOVLW d'20'
+				MOVWF FSR
+				MOVLW d'10'
+				MOVWF ADDRESSING_COUNTER
 
-				BSF		SELECT,0
-				BCF		SELECT,1
-				GOTO	RETTIMER3
-				
+LOOP1M          BTFSC INDF,0
+				CALL rectangle
+ 				
+				BTFSC INDF,1
+				CALL empty
 
-;CLEARING CAN BE OPTIMIZED FURTHER IF NECESSARY
-POSITION3		MOVLW b'01100' ; clearing position 2
-				CALL ET
-		
-				MOVLW 	b'00000' ; clearing position 2
-				CALL 	ET	
-				CALL	charSp
+				BTFSC INDF,2
+				CALL letterS
 
-				MOVLW	b'01100' ;4AH IS THE LOCATION
-				CALL 	ET
-		
-				MOVLW b'01011' ; 4 bits to jump address
-				CALL ET	
-				
-				CALL	charStar;print star before MAZE
-				BCF		SELECT,0
-				BCF		SELECT,1
-				GOTO	RETTIMER3
+				BTFSC INDF,3
+				CALL letterE
 
-;-----------------------------------------------------------------------------	
+				INCF FSR
+				DECFSZ ADDRESSING_COUNTER
 
+				GOTO  LOOP1M
+				RETURN
 
+INDA1           MOVLW d'30'
+				MOVWF FSR
+				MOVLW d'10'
+				MOVWF ADDRESSING_COUNTER
+
+				CALL	NEWLINE
+
+LOOP2M          BTFSC INDF,0
+				CALL rectangle
+ 				
+				BTFSC INDF,1
+				CALL empty
+
+				BTFSC INDF,2
+				CALL letterS
+
+				BTFSC INDF,3
+				CALL letterE
+
+				INCF FSR
+				DECFSZ ADDRESSING_COUNTER
+
+				GOTO  LOOP2M
+				RETURN
 
 END
