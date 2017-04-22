@@ -1,12 +1,20 @@
 MPLINK 4.35, Linker
+<<<<<<< HEAD
 Linker Map File - Created Sat Apr 22 22:35:04 2017
+=======
+Linker Map File - Created Sat Apr 22 11:14:48 2017
+>>>>>>> 9db7dba43fa4b4565825e774ae74b0d8d1819331
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .org_0       code   0x000000    program   0x000000
                    .org_1       code   0x000000    program   0x000002
+<<<<<<< HEAD
                    .org_2       code   0x000004    program   0x00032e
+=======
+                   .org_2       code   0x000004    program   0x000402
+>>>>>>> 9db7dba43fa4b4565825e774ae74b0d8d1819331
 
 
 
@@ -14,14 +22,20 @@ Linker Map File - Created Sat Apr 22 22:35:04 2017
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000000      
+<<<<<<< HEAD
                             0x000004    0x00019a      
             408 out of 1093 program addresses used, program memory utilization is 37%
+=======
+                            0x000004    0x000204      
+            514 out of 1093 program addresses used, program memory utilization is 47%
+>>>>>>> 9db7dba43fa4b4565825e774ae74b0d8d1819331
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
+<<<<<<< HEAD
               BUTTONPRESS   0x000089    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
              CLEARDISPLAY   0x000170    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
            CONFIRM_BUTTON   0x000094    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
@@ -83,12 +97,89 @@ Linker Map File - Created Sat Apr 22 22:35:04 2017
                       nb5   0x000148    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
                 rectangle   0x00012f    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
            timerInterrupt   0x0000a2    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+=======
+     ADJUST_NEXT_POSITION   0x000135    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+              BUTTONPRESS   0x0000bb    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+              CHOOSE_MODE   0x0000cd    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+             CLEARDISPLAY   0x0001dc    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           CONFIRM_BUTTON   0x0000c8    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+         CURSOR_INCREMENT   0x00011b    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+          CURSOR_MOVELEFT   0x0001e6    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+         CURSOR_MOVERIGHT   0x0001eb    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+          CURSOR_NEXTLINE   0x000122    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+             DEBOUNCELOOP   0x0001d8    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           DEBOUNCE_DELAY   0x0001d6    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+            DEFAULT_START   0x000055    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               END_BUTTON   0x0000d9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                       ET   0x0001be    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+  INCREMENT_NEXT_POSITION   0x00013a    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+        INCREMENT_POINTER   0x0000e2    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                     INDA   0x0001f0    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                    INDA1   0x0001f5    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                     LOOP   0x0001c8    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                    LOOP1   0x0001d1    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                   LOOP1M   0x0001f9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               MAZE_START   0x0000b6    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                     MENU   0x000032    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                 MENULOOP   0x000054    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+              MOVE_BUTTON   0x0000c5    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+         MOVE_CURSOR_MAZE   0x000113    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+     MOVE_CURSOR_MAZEMODE   0x00012c    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+     MOVE_CURSOR_OBSTACLE   0x000116    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  NEWLINE   0x0001b9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           OBSTACLE_START   0x000083    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           PLACE_MAZEMODE   0x000140    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           PLACE_OBSTACLE   0x000140    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+     PLACE_OBSTACLECHOOSE   0x00012c    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+       PLACE_OBSTACLEMODE   0x00012f    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                POSITION1   0x0000ed    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                POSITION2   0x0000f9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                POSITION3   0x000106    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+             POWERUPDELAY   0x0001c4    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               PRINTDELAY   0x0001cd    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                RETTIMER3   0x0000e1    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+        RETURN_TO_PROGRAM   0x0000d9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                       S0   0x0000d2    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               S00CHECKS1   0x0000e6    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               S01CHECKS1   0x0000ea    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                       S1   0x0000d6    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+             SET_BLINKING   0x0001e1    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               SOLVE_MAZE   0x000145    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                    START   0x000006    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+             START_BUTTON   0x0000d9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  WELCOME   0x000020    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                       at   0x0001a5    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                   charSp   0x000146    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                 charStar   0x000196    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                    comma   0x0001aa    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                    empty   0x0001a0    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterA   0x000169    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterB   0x000182    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterC   0x00018c    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterD   0x00015a    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterE   0x00015f    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterF   0x000164    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterL   0x000173    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterM   0x000155    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterO   0x00017d    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterR   0x000150    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterS   0x000187    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterT   0x000178    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterU   0x00016e    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterV   0x00014b    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterZ   0x000191    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                      nb0   0x0001af    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                      nb5   0x0001b4    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                rectangle   0x00019b    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           timerInterrupt   0x0000db    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+>>>>>>> 9db7dba43fa4b4565825e774ae74b0d8d1819331
 
 
 
                               Symbols - Sorted by Address
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
+<<<<<<< HEAD
                     START   0x000006    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
                   WELCOME   0x000023    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
                      MENU   0x000035    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
@@ -150,5 +241,81 @@ Linker Map File - Created Sat Apr 22 22:35:04 2017
                    LOOP1M   0x00017e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
                     INDA1   0x00018a    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
                    LOOP2M   0x00018f    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+=======
+                    START   0x000006    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  WELCOME   0x000020    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                     MENU   0x000032    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                 MENULOOP   0x000054    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+            DEFAULT_START   0x000055    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           OBSTACLE_START   0x000083    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               MAZE_START   0x0000b6    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+              BUTTONPRESS   0x0000bb    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+              MOVE_BUTTON   0x0000c5    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           CONFIRM_BUTTON   0x0000c8    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+              CHOOSE_MODE   0x0000cd    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                       S0   0x0000d2    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                       S1   0x0000d6    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+        RETURN_TO_PROGRAM   0x0000d9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+             START_BUTTON   0x0000d9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               END_BUTTON   0x0000d9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           timerInterrupt   0x0000db    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                RETTIMER3   0x0000e1    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+        INCREMENT_POINTER   0x0000e2    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               S00CHECKS1   0x0000e6    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               S01CHECKS1   0x0000ea    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                POSITION1   0x0000ed    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                POSITION2   0x0000f9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                POSITION3   0x000106    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+         MOVE_CURSOR_MAZE   0x000113    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+     MOVE_CURSOR_OBSTACLE   0x000116    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+         CURSOR_INCREMENT   0x00011b    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+          CURSOR_NEXTLINE   0x000122    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+     MOVE_CURSOR_MAZEMODE   0x00012c    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+     PLACE_OBSTACLECHOOSE   0x00012c    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+       PLACE_OBSTACLEMODE   0x00012f    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+     ADJUST_NEXT_POSITION   0x000135    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+  INCREMENT_NEXT_POSITION   0x00013a    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           PLACE_OBSTACLE   0x000140    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           PLACE_MAZEMODE   0x000140    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               SOLVE_MAZE   0x000145    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                   charSp   0x000146    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterV   0x00014b    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterR   0x000150    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterM   0x000155    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterD   0x00015a    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterE   0x00015f    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterF   0x000164    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterA   0x000169    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterU   0x00016e    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterL   0x000173    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterT   0x000178    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterO   0x00017d    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterB   0x000182    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterS   0x000187    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterC   0x00018c    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  letterZ   0x000191    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                 charStar   0x000196    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                rectangle   0x00019b    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                    empty   0x0001a0    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                       at   0x0001a5    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                    comma   0x0001aa    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                      nb0   0x0001af    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                      nb5   0x0001b4    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                  NEWLINE   0x0001b9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                       ET   0x0001be    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+             POWERUPDELAY   0x0001c4    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                     LOOP   0x0001c8    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+               PRINTDELAY   0x0001cd    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                    LOOP1   0x0001d1    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+           DEBOUNCE_DELAY   0x0001d6    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+             DEBOUNCELOOP   0x0001d8    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+             CLEARDISPLAY   0x0001dc    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+             SET_BLINKING   0x0001e1    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+          CURSOR_MOVELEFT   0x0001e6    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+         CURSOR_MOVERIGHT   0x0001eb    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                     INDA   0x0001f0    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                    INDA1   0x0001f5    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+                   LOOP1M   0x0001f9    program     static C:\Users\lrakl\Documents\AUB\EECE 321L\Maze Solver Project\AssemblyMazeSolver-master\program.asm
+>>>>>>> 9db7dba43fa4b4565825e774ae74b0d8d1819331
 
 

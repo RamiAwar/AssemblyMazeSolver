@@ -9,6 +9,8 @@ TIMER3		EQU		d'14'
 SELECT		EQU		d'15'
 DEBOUNCECOUNT	EQU		d'16'
 ADDRESSING_COUNTER	EQU	d'17'
+CURRENT_ADDRESS		EQU	d'18'
+OBSTACLE_COUNTER	EQU	d'19'
 
 			ORG		0x0
 			GOTO	START
@@ -65,11 +67,7 @@ START		CLRF	PORTA
 			MOVLW	b'01100'	;setting display to ON
 			CALL	ET
 
-			MOVLW	b'00000'
-			CALL	ET
-
-			MOVLW	b'00110'	;shift off, increment on
-			CALL	ET
+			CALL	CURSOR_MOVERIGHT
 
 			CALL 	CLEARDISPLAY
 
@@ -99,8 +97,8 @@ WELCOME 	CALL	charSp	;Welcome Screen
 ;START MENU		 |
 ;----------------|
 
-BSF	PORTB, 2
-BSF	PORTB, 3
+			BSF	PORTB, 2
+			BSF	PORTB, 3
 
 MENU		CALL	charSp  ;Mode Selection Menu
 			CALL	charSp
@@ -145,7 +143,7 @@ MENU		CALL	charSp  ;Mode Selection Menu
 			BSF		INTCON,GIE
 
 
-MENULOOP	GOTO	MENULOOP
+MENULOOP		GOTO	MENULOOP
 
 ;--------------DATABASE FORMAT----------------
 ;	OBSTACLE ---> 0
@@ -155,9 +153,10 @@ MENULOOP	GOTO	MENULOOP
 ;---------------------------------------------
 
 DEFAULT_START	CALL CLEARDISPLAY
-				
 				CALL	SET_BLINKING
-
+				MOVLW	b'110'
+				MOVWF	SELECT
+				
 				BSF d'20',0 ;obstacle
 				BSF d'21',1 ;empty
 				BSF d'22',1 ;empty
@@ -183,11 +182,6 @@ DEFAULT_START	CALL CLEARDISPLAY
 				BSF PORTB,3	;turn on RED LED	
 				BCF PORTB,2 ;ground GREEN LED
 				
-				MOVLW d'20'
-				MOVWF FSR
-				MOVLW d'10'
-				MOVWF ADDRESSING_COUNTER
-
 				CALL INDA
 				CALL charSp
 				CALL charSp
@@ -195,6 +189,8 @@ DEFAULT_START	CALL CLEARDISPLAY
 				CALL letterS
 				CALL charSp
 				CALL at
+
+				CALL NEWLINE
 
 				CALL INDA1
 				CALL charSp
@@ -204,23 +200,94 @@ DEFAULT_START	CALL CLEARDISPLAY
 				CALL comma
 				CALL nb5
 
+				MOVLW 	b'01000' ; Set Cursor Starting Position
+				CALL 	ET
+		
+				MOVLW 	b'00101' 
+				CALL 	ET
+
 				CALL	SOLVE_MAZE
 
+				;RETURNING TO MAIN MENU
+				GOTO	MENU
+
+
+OBSTACLE_START	CALL 	CLEARDISPLAY
+				CALL	SET_BLINKING
+				MOVLW	b'100'
+				MOVWF	SELECT
+
+				BSF 	d'20',2 ;S
+				BSF 	d'21',1 ;empty
+				BSF 	d'22',1 ;empty
+				BSF 	d'23',1 ;empty
+				BSF 	d'24',1 ;empty
+				BSF 	d'25',1 ;empty
+				BSF 	d'26',1 ;empty
+				BSF 	d'27',1 ;empty
+				BSF 	d'28',1 ;empty
+				BSF 	d'29',1 ;empty
+				BSF 	d'30',1 ;empty
+				BSF 	d'31',1 ;empty
+				BSF 	d'32',1 ;empty
+				BSF 	d'33',1 ;empty
+				BSF 	d'34',1 ;empty
+				BSF 	d'35',1 ;empty
+				BSF 	d'36',1 ;empty
+				BSF 	d'37',1 ;empty
+				BSF 	d'38',1 ;empty
+				BSF 	d'39',3 ;E
+
+				BSF 	PORTB,2	;TURN ON GREEN LED
+				BCF 	PORTB,3 ;GROUND RED LED
+
+				CALL	INDA
+				CALL	charSp
+				CALL	charSp
+				CALL	charSp
+				CALL	letterS
+				CALL 	charSp
+				CALL 	at
+				
+				CALL	NEWLINE
+	
+				CALL 	INDA1
+				CALL 	charSp
+				CALL 	charSp
+				CALL 	charSp
+				CALL 	nb0
+				CALL 	comma
+				CALL 	nb5
+
+				MOVLW 	b'01000' ; Set Cursor Starting Position
+				CALL 	ET
+		
+				MOVLW 	b'00001' 
+				CALL 	ET
+
+				MOVLW	d'0'
+				MOVWF	ADDRESSING_COUNTER
+				MOVWF	OBSTACLE_COUNTER				
+
+				MOVLW	d'21'
+				MOVWF	CURRENT_ADDRESS
+
+
+;RETURNING TO MAIN MENU
+GOTO	MENU
+			
+
+MAZE_START		CALL 	CLEARDISPLAY
+				CALL	SET_BLINKING
+				MOVLW	b'101'
+				MOVWF	SELECT
+
+				GOTO	MENULOOP
+
 ;RETURNING TO MAIN MENU
 GOTO	MENU
 
 
-OBSTACLE_START	CALL	CLEARDISPLAY
-
-
-;RETURNING TO MAIN MENU
-GOTO	MENU
-
-
-MAZE_START	CALL	CLEARDISPLAY
-
-;RETURNING TO MAIN MENU
-GOTO	MENU
 
 ;-------------------------|
 ;END MAIN PROGRAM         |
@@ -240,13 +307,21 @@ BUTTONPRESS		CALL	DEBOUNCE_DELAY	;CALLED WHEN ANY BUTTON IS PRESSED
 				GOTO	END_BUTTON
 				GOTO	RETURN_TO_PROGRAM
 				
-MOVE_BUTTON		GOTO	INCREMENT_POINTER
+MOVE_BUTTON		BTFSS	SELECT, 2	; if bit 2 of select is cleared, we are in the menu
+				GOTO	INCREMENT_POINTER ; used to navigate the menu
+				GOTO	MOVE_CURSOR_MAZE ;to navigate the cursor around the maze
 
-CONFIRM_BUTTON		BCF		INTCON, RBIF
-					BTFSS	SELECT,0
-					GOTO	S0
-					BTFSC	SELECT,0
-					GOTO	S1
+CONFIRM_BUTTON	BTFSS	SELECT, 2	; if bit 2 of select is cleared, we are in the menu
+				GOTO	CHOOSE_MODE ; used to confirm the mode we are currently pointing at
+				BTFSS	SELECT,1	; SELECT = 110 --> DEFAULT MODE / ELSE --> OBSTACLE MODE OR MAZE MODE
+				GOTO	PLACE_OBSTACLECHOOSE
+				GOTO	SOLVE_MAZE ; we solve the maze directly in default mode
+
+CHOOSE_MODE		BCF		INTCON, RBIF
+				BTFSS	SELECT,0
+				GOTO	S0
+				BTFSC	SELECT,0
+				GOTO	S1
 S0				BTFSS	SELECT,1
 				GOTO	MAZE_START
 				BTFSC	SELECT,1
@@ -254,6 +329,7 @@ S0				BTFSS	SELECT,1
 S1				BTFSS	SELECT,1
 				GOTO	OBSTACLE_START
 				GOTO	RETURN_TO_PROGRAM
+
 
 START_BUTTON
 
@@ -358,8 +434,81 @@ POSITION3		MOVLW b'01100' ; clearing position 2
 				BCF		SELECT,1
 				GOTO	RETURN_TO_PROGRAM
 
+;---------------MOVE CURSOR CODE----------------------------
+
+MOVE_CURSOR_MAZE	BTFSS	SELECT,0	;SELECT = 100 --> OBSTACLE MODE / SELECT = 101 --> MAZE MODE
+					GOTO	MOVE_CURSOR_OBSTACLE
+					GOTO	MOVE_CURSOR_MAZEMODE
+
+MOVE_CURSOR_OBSTACLE	BTFSS	ADDRESSING_COUNTER, 3
+						GOTO	CURSOR_INCREMENT
+						BTFSC	ADDRESSING_COUNTER, 4
+						GOTO 	SOLVE_MAZE
+						GOTO	CURSOR_NEXTLINE
+
+CURSOR_INCREMENT		CALL	empty
+						BTFSS	ADDRESSING_COUNTER, 4 ;IF BIT4 OF ADDRESSING COUNTER IS SET, WE ARE IN THE SECOND LINE AND MOVING BACKWARDS
+						INCF	CURRENT_ADDRESS		  
+						BTFSC	ADDRESSING_COUNTER, 4
+						DECF	CURRENT_ADDRESS
+						INCF	ADDRESSING_COUNTER
+						GOTO	RETURN_TO_PROGRAM
+
+CURSOR_NEXTLINE			MOVLW	b'01100' ;move to required position
+						CALL	ET
+						MOVLW	b'01000'
+						CALL	ET
+						CALL	CURSOR_MOVELEFT
+						MOVLW	b'10000'
+						MOVWF	ADDRESSING_COUNTER
+						MOVLW	d'38'
+						MOVWF	CURRENT_ADDRESS
+						GOTO	RETURN_TO_PROGRAM
+
+MOVE_CURSOR_MAZEMODE
 ;-----------------------------------------------------------------------------	
 
+;---------------PLACE OBSTACLES CODE----------------------------
+
+PLACE_OBSTACLECHOOSE	BTFSS	SELECT,0	;SELECT = 100 --> OBSTACLE MODE / SELECT = 101 --> MAZE MODE
+						GOTO	PLACE_OBSTACLEMODE
+						GOTO	PLACE_MAZEMODE
+
+PLACE_OBSTACLEMODE	CALL	PLACE_OBSTACLE	;PLACE OBSTACLE IN CURRENT POSITION
+					INCF	OBSTACLE_COUNTER	;ADJUST NUMBER OF PLACED OBSTACLES									
+					BTFSC	OBSTACLE_COUNTER,2 ;CHECK IF 5 OBSTACLES HAVE BEEN PLACED
+					BTFSS	OBSTACLE_COUNTER,0
+					GOTO	ADJUST_NEXT_POSITION ; ADJUST CURSOR TO KEEP PLACING OBSTACLES
+					GOTO	SOLVE_MAZE	;IF WE HAVE PLACE 5 OBSTACLES WE SOLVE THE MAZE
+
+ADJUST_NEXT_POSITION		BTFSS	ADDRESSING_COUNTER, 3	; IF IT IS SET, WE ARE ON ROW0 COLUMN9, OR ROW1 COLUMN0
+							GOTO	INCREMENT_NEXT_POSITION	
+							BTFSC	ADDRESSING_COUNTER, 4 	; IF IT IS SET, WE ARE ON ROW1 COLUMN0, ELSE WE ARE ON ROW0 COLUMN9
+							GOTO	SOLVE_MAZE
+							GOTO	CURSOR_NEXTLINE
+							
+INCREMENT_NEXT_POSITION		BTFSS	ADDRESSING_COUNTER, 4 ;IF BIT4 OF ADDRESSING COUNTER IS SET, WE ARE IN ROW1 AND NEED TO MOVE BACKWARDS
+							INCF	CURRENT_ADDRESS		  
+							BTFSC	ADDRESSING_COUNTER, 4
+							DECF	CURRENT_ADDRESS
+							INCF	ADDRESSING_COUNTER
+							GOTO	RETURN_TO_PROGRAM
+
+
+PLACE_MAZEMODE
+
+PLACE_OBSTACLE		BSF		CURRENT_ADDRESS, 0 ;SET THE ADDRESS AS CONTAINING AN OBSTACLE
+					MOVWF	CURRENT_ADDRESS
+					MOVLW	FSR
+					CALL	rectangle
+					RETURN
+
+
+;---------------MAZE SOLVING ALGORITHM----------------------------
+
+SOLVE_MAZE		CALL CLEARDISPLAY
+
+;-----------------------------------------------------------------------------
 ;------CHARACTER DECLARATIONS---------
 
 charSp	MOVLW b'10010' ;upper bits of Space character
@@ -538,11 +687,29 @@ SET_BLINKING	MOVLW	b'00000'	;initializing display
 				MOVLW	b'01111'	;setting display to ON
 				CALL	ET
 				RETURN
+
+CURSOR_MOVELEFT		MOVLW	b'00000';set cursor move position to the left
+					CALL	ET
+					MOVLW	b'00100'
+					CALL	ET
+					RETURN
+
+CURSOR_MOVERIGHT	MOVLW	b'00000';set cursor move position to the left
+					CALL	ET
+					MOVLW	b'00110'
+					CALL	ET
+					RETURN
 ;---------------------------
 
 ;-----------------INDIRECT ADDRESSING---------------------
 
-INDA           	MOVLW d'20'
+INDA           	MOVLW 	d'20'
+				MOVWF	FSR
+				MOVLW	d'10'
+				MOVWF	ADDRESSING_COUNTER
+				GOTO	LOOP1M
+
+INDA1           MOVLW d'30'
 				MOVWF FSR
 				MOVLW d'10'
 				MOVWF ADDRESSING_COUNTER
@@ -565,29 +732,5 @@ LOOP1M          BTFSC INDF,0
 				GOTO  LOOP1M
 				RETURN
 
-INDA1           MOVLW d'30'
-				MOVWF FSR
-				MOVLW d'10'
-				MOVWF ADDRESSING_COUNTER
-
-				CALL	NEWLINE
-
-LOOP2M          BTFSC INDF,0
-				CALL rectangle
- 				
-				BTFSC INDF,1
-				CALL empty
-
-				BTFSC INDF,2
-				CALL letterS
-
-				BTFSC INDF,3
-				CALL letterE
-
-				INCF FSR
-				DECFSZ ADDRESSING_COUNTER
-
-				GOTO  LOOP2M
-				RETURN
 
 END
