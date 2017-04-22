@@ -1,0 +1,9 @@
+# MPLAB files
+*.HEX
+*.cof
+*.err
+*.lst
+*.map
+*.mcs
+*.O
+
