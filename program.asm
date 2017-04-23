@@ -566,30 +566,41 @@ SOLVE_MAZE
 					GOTO	EMPTY_CASE		
 					;----------------------------------------------------------------
 					
-
 CHECK_LEFT
 
 SOLVED
 
-EMPTY_CASE			;Incrementing current position
+EMPTY_CASE			;Incrementing cursor position
+					CALL	INCREMENT_CURSOR
+
+					;Printing star
+					CALL    charStar
+					CALL    LONGDELAY
+
+					;Incrementing current position
 					MOVLW	b'1'
 					ADDWF	CURRENT_POSITION,1
 
 					;LABELLING CURRENT POSITION AS VISITED
 					MOVF	CURRENT_POSITION,0	;MOVING CURRENT_POS CONTENT TO W
 					MOVWF	FSR
-					BSF		INDF, 4;SETTING CUR_POS REGISTER AS VISITED
+					BSF		INDF, 4	;SETTING CUR_POS REGISTER AS VISITED
 
-					;Incrementing cursor position
-					MOVLW	h'1'
-					ADDWF	CURSOR_POSITION, 1	;ADDING 1 TO CURRENT CURSOR POSITION
-					CALL	INCREMENT_CURSOR
+					
 						
 					
 					
 RETURN
 		
+INCREMENT_CURSOR		MOVF	CURRENT_POSITION,0	;MOVING CURRENT_POS CONTENT TO W
+						MOVWF	FSR
+						CALL    CHECK_INDF_PRINT  ;CURSOR INCREMENTED BY PRINTING CUR_POS IN CUR_POS
 
+
+
+
+
+						RETURN
 
 ;-----------------------------------------------------------------------------
 ;------CHARACTER DECLARATIONS---------
@@ -726,6 +737,11 @@ ET		MOVWF	PORTA
 		CALL	PRINTDELAY; this is to wait for LCD to stop executing
 		RETURN
 
+LONGDELAY		MOVLW	d'10'
+LOOPLONG 		CALL    POWERUPDELAY
+                DECFSZ  W, W
+                GOTO    LOOPLONG
+                RETURN
 
 
 POWERUPDELAY	MOVLW	d'00'	; setting up 40ms delay
@@ -802,17 +818,7 @@ INDA1           MOVLW d'30'
 				MOVLW d'10'
 				MOVWF ADDRESSING_COUNTER
 
-LOOP1M          BTFSC INDF,0
-				CALL rectangle
- 				
-				BTFSC INDF,1
-				CALL empty
-
-				BTFSC INDF,2
-				CALL letterS
-
-				BTFSC INDF,3
-				CALL letterE
+LOOP1M          CALL  CHECK_INDF_PRINT
 
 				INCF FSR
 				DECFSZ ADDRESSING_COUNTER
@@ -820,5 +826,19 @@ LOOP1M          BTFSC INDF,0
 				GOTO  LOOP1M
 				RETURN
 
+
+CHECK_INDF_PRINT	BTFSC INDF,0
+					CALL rectangle
+ 				
+					BTFSC INDF,1
+					CALL empty
+
+					BTFSC INDF,2
+					CALL letterS
+
+					BTFSC INDF,3
+					CALL letterE
+
+					RETURN
 
 END
