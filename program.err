@@ -1,16 +1,17 @@
-Message[302] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 35 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Message[302] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 43 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Message[302] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 38 : Register in operand not in bank 0.  Ensure that bank bits are correct.
 Message[302] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 46 : Register in operand not in bank 0.  Ensure that bank bits are correct.
-Warning[203] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 277 : Found opcode in column 1. (GOTO)
-Warning[203] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 288 : Found opcode in column 1. (GOTO)
-Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 448 : Using default destination of 1 (file).
-Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 450 : Using default destination of 1 (file).
-Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 451 : Using default destination of 1 (file).
-Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 475 : Using default destination of 1 (file).
-Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 488 : Using default destination of 1 (file).
-Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 490 : Using default destination of 1 (file).
-Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 491 : Using default destination of 1 (file).
-Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 671 : Using default destination of 1 (file).
-Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 726 : Using default destination of 1 (file).
-Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 727 : Using default destination of 1 (file).
-Warning[205] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 733 : Found directive in column 1. (END)
+Message[302] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 49 : Register in operand not in bank 0.  Ensure that bank bits are correct.
+Warning[203] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 229 : Found opcode in column 1. (GOTO)
+Warning[203] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 294 : Found opcode in column 1. (GOTO)
+Warning[203] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 304 : Found opcode in column 1. (GOTO)
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 458 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 460 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 461 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 485 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 498 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 500 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 501 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 732 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 792 : Using default destination of 1 (file).
+Message[305] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 793 : Using default destination of 1 (file).
+Warning[205] C:\USERS\RAMI\DESKTOP\MAZESOLVER\PROGRAM.ASM 799 : Found directive in column 1. (END)

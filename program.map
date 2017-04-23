@@ -1,12 +1,12 @@
 MPLINK 4.35, Linker
-Linker Map File - Created Sat Apr 22 22:49:01 2017
+Linker Map File - Created Sun Apr 23 17:12:26 2017
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
                 ---------  ---------  ---------  ---------  ---------
                    .org_0       code   0x000000    program   0x000000
                    .org_1       code   0x000000    program   0x000002
-                   .org_2       code   0x000004    program   0x000406
+                   .org_2       code   0x000004    program   0x000442
 
 
 
@@ -14,88 +14,92 @@ Linker Map File - Created Sat Apr 22 22:49:01 2017
                                Start         End      
                            ---------   ---------      
                             0x000000    0x000000      
-                            0x000004    0x000206      
-            516 out of 1093 program addresses used, program memory utilization is 47%
+                            0x000004    0x000224      
+            546 out of 1093 program addresses used, program memory utilization is 49%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-     ADJUST_NEXT_POSITION   0x000137    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-              BUTTONPRESS   0x0000bd    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-              CHOOSE_MODE   0x0000cf    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-             CLEARDISPLAY   0x0001de    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           CONFIRM_BUTTON   0x0000ca    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-         CURSOR_INCREMENT   0x00011d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-          CURSOR_MOVELEFT   0x0001e8    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-         CURSOR_MOVERIGHT   0x0001ed    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-          CURSOR_NEXTLINE   0x000124    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-             DEBOUNCELOOP   0x0001da    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           DEBOUNCE_DELAY   0x0001d8    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-            DEFAULT_START   0x000055    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               END_BUTTON   0x0000db    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                       ET   0x0001c0    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-  INCREMENT_NEXT_POSITION   0x00013c    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-        INCREMENT_POINTER   0x0000e4    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                     INDA   0x0001f2    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                    INDA1   0x0001f7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                     LOOP   0x0001ca    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                    LOOP1   0x0001d3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                   LOOP1M   0x0001fb    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               MAZE_START   0x0000b7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                     MENU   0x000032    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                 MENULOOP   0x000054    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-              MOVE_BUTTON   0x0000c7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-         MOVE_CURSOR_MAZE   0x000115    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-     MOVE_CURSOR_MAZEMODE   0x00012e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-     MOVE_CURSOR_OBSTACLE   0x000118    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  NEWLINE   0x0001bb    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           OBSTACLE_START   0x000084    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           PLACE_MAZEMODE   0x000142    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           PLACE_OBSTACLE   0x000142    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-     PLACE_OBSTACLECHOOSE   0x00012e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-       PLACE_OBSTACLEMODE   0x000131    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                POSITION1   0x0000ef    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                POSITION2   0x0000fb    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                POSITION3   0x000108    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-             POWERUPDELAY   0x0001c6    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               PRINTDELAY   0x0001cf    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                RETTIMER3   0x0000e3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-        RETURN_TO_PROGRAM   0x0000db    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                       S0   0x0000d4    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               S00CHECKS1   0x0000e8    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               S01CHECKS1   0x0000ec    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                       S1   0x0000d8    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-             SET_BLINKING   0x0001e3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               SOLVE_MAZE   0x000147    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+     ADJUST_NEXT_POSITION   0x00013d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+              BUTTONPRESS   0x0000c3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               CHECK_LEFT   0x000160    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+              CHOOSE_MODE   0x0000d5    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+             CLEARDISPLAY   0x0001f7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           CLEAR_BLINKING   0x000201    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           CONFIRM_BUTTON   0x0000d0    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+         CURSOR_INCREMENT   0x000123    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+          CURSOR_MOVELEFT   0x000206    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+         CURSOR_MOVERIGHT   0x00020b    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+          CURSOR_NEXTLINE   0x00012a    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+             DEBOUNCELOOP   0x0001f3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           DEBOUNCE_DELAY   0x0001f1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+            DEFAULT_START   0x000052    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               EMPTY_CASE   0x000160    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               END_BUTTON   0x0000e1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                       ET   0x0001d9    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+  INCREMENT_NEXT_POSITION   0x000142    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+        INCREMENT_POINTER   0x0000ea    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                     INDA   0x000210    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                    INDA1   0x000215    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                     LOOP   0x0001e3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                    LOOP1   0x0001ec    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                   LOOP1M   0x000219    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               MAZE_START   0x0000bd    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                     MENU   0x00002f    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                 MENULOOP   0x000051    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+              MOVE_BUTTON   0x0000cd    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+         MOVE_CURSOR_MAZE   0x00011b    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+     MOVE_CURSOR_MAZEMODE   0x000134    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+     MOVE_CURSOR_OBSTACLE   0x00011e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  NEWLINE   0x0001d4    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           OBSTACLE_START   0x00008a    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           PLACE_MAZEMODE   0x000148    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           PLACE_OBSTACLE   0x000148    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+     PLACE_OBSTACLECHOOSE   0x000134    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+       PLACE_OBSTACLEMODE   0x000137    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                POSITION1   0x0000f5    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                POSITION2   0x000101    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                POSITION3   0x00010e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+             POWERUPDELAY   0x0001df    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               PRINTDELAY   0x0001e8    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                RETTIMER3   0x0000e9    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+        RETURN_TO_PROGRAM   0x0000e1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                       S0   0x0000da    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               S00CHECKS1   0x0000ee    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               S01CHECKS1   0x0000f2    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                       S1   0x0000de    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+             SET_BLINKING   0x0001fc    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                   SOLVED   0x000160    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               SOLVE_MAZE   0x00014d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
                     START   0x000006    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-             START_BUTTON   0x0000db    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  WELCOME   0x000020    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                       at   0x0001a7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                   charSp   0x000148    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                 charStar   0x000198    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                    comma   0x0001ac    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                    empty   0x0001a2    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterA   0x00016b    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterB   0x000184    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterC   0x00018e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterD   0x00015c    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterE   0x000161    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterF   0x000166    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterL   0x000175    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterM   0x000157    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterO   0x00017f    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterR   0x000152    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterS   0x000189    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterT   0x00017a    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterU   0x000170    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterV   0x00014d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterZ   0x000193    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                      nb0   0x0001b1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                      nb5   0x0001b6    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                rectangle   0x00019d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           timerInterrupt   0x0000dd    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+             START_BUTTON   0x0000e1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  WELCOME   0x00001d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                       at   0x0001c0    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                   charSp   0x000161    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                 charStar   0x0001b1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                    comma   0x0001c5    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                    empty   0x0001bb    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterA   0x000184    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterB   0x00019d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterC   0x0001a7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterD   0x000175    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterE   0x00017a    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterF   0x00017f    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterL   0x00018e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterM   0x000170    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterO   0x000198    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterR   0x00016b    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterS   0x0001a2    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterT   0x000193    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterU   0x000189    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterV   0x000166    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterZ   0x0001ac    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                      nb0   0x0001ca    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                      nb5   0x0001cf    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                rectangle   0x0001b6    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           timerInterrupt   0x0000e3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
 
 
 
@@ -103,78 +107,82 @@ Linker Map File - Created Sat Apr 22 22:49:01 2017
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
                     START   0x000006    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  WELCOME   0x000020    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                     MENU   0x000032    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                 MENULOOP   0x000054    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-            DEFAULT_START   0x000055    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           OBSTACLE_START   0x000084    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               MAZE_START   0x0000b7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-              BUTTONPRESS   0x0000bd    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-              MOVE_BUTTON   0x0000c7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           CONFIRM_BUTTON   0x0000ca    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-              CHOOSE_MODE   0x0000cf    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                       S0   0x0000d4    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                       S1   0x0000d8    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-        RETURN_TO_PROGRAM   0x0000db    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-             START_BUTTON   0x0000db    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               END_BUTTON   0x0000db    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           timerInterrupt   0x0000dd    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                RETTIMER3   0x0000e3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-        INCREMENT_POINTER   0x0000e4    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               S00CHECKS1   0x0000e8    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               S01CHECKS1   0x0000ec    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                POSITION1   0x0000ef    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                POSITION2   0x0000fb    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                POSITION3   0x000108    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-         MOVE_CURSOR_MAZE   0x000115    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-     MOVE_CURSOR_OBSTACLE   0x000118    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-         CURSOR_INCREMENT   0x00011d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-          CURSOR_NEXTLINE   0x000124    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-     MOVE_CURSOR_MAZEMODE   0x00012e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-     PLACE_OBSTACLECHOOSE   0x00012e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-       PLACE_OBSTACLEMODE   0x000131    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-     ADJUST_NEXT_POSITION   0x000137    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-  INCREMENT_NEXT_POSITION   0x00013c    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           PLACE_OBSTACLE   0x000142    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           PLACE_MAZEMODE   0x000142    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               SOLVE_MAZE   0x000147    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                   charSp   0x000148    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterV   0x00014d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterR   0x000152    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterM   0x000157    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterD   0x00015c    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterE   0x000161    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterF   0x000166    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterA   0x00016b    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterU   0x000170    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterL   0x000175    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterT   0x00017a    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterO   0x00017f    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterB   0x000184    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterS   0x000189    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterC   0x00018e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  letterZ   0x000193    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                 charStar   0x000198    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                rectangle   0x00019d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                    empty   0x0001a2    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                       at   0x0001a7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                    comma   0x0001ac    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                      nb0   0x0001b1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                      nb5   0x0001b6    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                  NEWLINE   0x0001bb    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                       ET   0x0001c0    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-             POWERUPDELAY   0x0001c6    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                     LOOP   0x0001ca    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-               PRINTDELAY   0x0001cf    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                    LOOP1   0x0001d3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-           DEBOUNCE_DELAY   0x0001d8    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-             DEBOUNCELOOP   0x0001da    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-             CLEARDISPLAY   0x0001de    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-             SET_BLINKING   0x0001e3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-          CURSOR_MOVELEFT   0x0001e8    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-         CURSOR_MOVERIGHT   0x0001ed    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                     INDA   0x0001f2    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                    INDA1   0x0001f7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
-                   LOOP1M   0x0001fb    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  WELCOME   0x00001d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                     MENU   0x00002f    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                 MENULOOP   0x000051    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+            DEFAULT_START   0x000052    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           OBSTACLE_START   0x00008a    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               MAZE_START   0x0000bd    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+              BUTTONPRESS   0x0000c3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+              MOVE_BUTTON   0x0000cd    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           CONFIRM_BUTTON   0x0000d0    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+              CHOOSE_MODE   0x0000d5    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                       S0   0x0000da    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                       S1   0x0000de    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+             START_BUTTON   0x0000e1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+        RETURN_TO_PROGRAM   0x0000e1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               END_BUTTON   0x0000e1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           timerInterrupt   0x0000e3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                RETTIMER3   0x0000e9    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+        INCREMENT_POINTER   0x0000ea    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               S00CHECKS1   0x0000ee    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               S01CHECKS1   0x0000f2    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                POSITION1   0x0000f5    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                POSITION2   0x000101    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                POSITION3   0x00010e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+         MOVE_CURSOR_MAZE   0x00011b    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+     MOVE_CURSOR_OBSTACLE   0x00011e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+         CURSOR_INCREMENT   0x000123    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+          CURSOR_NEXTLINE   0x00012a    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+     PLACE_OBSTACLECHOOSE   0x000134    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+     MOVE_CURSOR_MAZEMODE   0x000134    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+       PLACE_OBSTACLEMODE   0x000137    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+     ADJUST_NEXT_POSITION   0x00013d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+  INCREMENT_NEXT_POSITION   0x000142    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           PLACE_MAZEMODE   0x000148    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           PLACE_OBSTACLE   0x000148    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               SOLVE_MAZE   0x00014d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                   SOLVED   0x000160    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               CHECK_LEFT   0x000160    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               EMPTY_CASE   0x000160    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                   charSp   0x000161    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterV   0x000166    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterR   0x00016b    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterM   0x000170    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterD   0x000175    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterE   0x00017a    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterF   0x00017f    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterA   0x000184    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterU   0x000189    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterL   0x00018e    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterT   0x000193    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterO   0x000198    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterB   0x00019d    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterS   0x0001a2    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterC   0x0001a7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  letterZ   0x0001ac    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                 charStar   0x0001b1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                rectangle   0x0001b6    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                    empty   0x0001bb    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                       at   0x0001c0    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                    comma   0x0001c5    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                      nb0   0x0001ca    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                      nb5   0x0001cf    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                  NEWLINE   0x0001d4    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                       ET   0x0001d9    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+             POWERUPDELAY   0x0001df    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                     LOOP   0x0001e3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+               PRINTDELAY   0x0001e8    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                    LOOP1   0x0001ec    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           DEBOUNCE_DELAY   0x0001f1    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+             DEBOUNCELOOP   0x0001f3    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+             CLEARDISPLAY   0x0001f7    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+             SET_BLINKING   0x0001fc    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+           CLEAR_BLINKING   0x000201    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+          CURSOR_MOVELEFT   0x000206    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+         CURSOR_MOVERIGHT   0x00020b    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                     INDA   0x000210    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                    INDA1   0x000215    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
+                   LOOP1M   0x000219    program     static C:\Users\Rami\Desktop\MazeSolver\program.asm
 
 
